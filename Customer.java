@@ -10,7 +10,7 @@ package Prog4;
  * @author vince
  */
 
-public class Customer 
+public class Customer     
 {
    private static int customerCount = 0;   // # of customers created
    private int customerNumber;      // Set to incremented customerCount 
@@ -33,3 +33,6 @@ public class Customer
       return arrivalTime;
    }
 }
+
+
+

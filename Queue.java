@@ -28,7 +28,7 @@ public class Queue<E>
    Creates a Queue Object, with a size of SIZE.
    @param size of the array.
    */
-   public Queue(int size)
+   public Queue(int size)    
    {
       elements = (E[]) new Object[size];
 
@@ -90,3 +90,6 @@ public class Queue<E>
       return x;
    }
 }
+
+
+
