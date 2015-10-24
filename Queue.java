@@ -16,7 +16,7 @@ empty, and adds and removes Objects to the rear of the Queue.
 
 @author Shane Hendricks
 */
-public class Queue<E> // Student must properly comment
+public class Queue<E>
 
 {
 
@@ -26,6 +26,7 @@ public class Queue<E> // Student must properly comment
    
    /**
    Creates a Queue Object, with a size of SIZE.
+   @param size of the array.
    */
    public Queue(int size)
    {
