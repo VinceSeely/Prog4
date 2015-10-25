@@ -59,7 +59,7 @@ public class ConsoleSimulation
    private void complete()
    {
       System.out.println(line.serviceCompletion() + 
-              "Number waiting in queue is" + line.getNumWaiting());
+              " Number waiting in queue is" + line.getNumWaiting());
    }
    
    private void add()
