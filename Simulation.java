@@ -24,16 +24,21 @@ public class Simulation
   
   public boolean arrival()
   {
+     
      if(!q.isFull())
      {
         if(q.isEmpty())
         {
            curServed = new Customer(curTime);
+           q.add(curServed);
            peopleNoWait++;
         }
         else
+        {
            peopleThatHadToWait++;
-        q.add(new Customer(curTime));
+           q.add(new Customer(curTime));
+        }
+        
       return true;
      }
      return false;
@@ -45,6 +50,7 @@ public class Simulation
      {
          String retVal = curServed.toString();
          curServed = (Customer)q.remove();
+         peopleCompleted++;
          return retVal;
      }
      return "Error";
@@ -70,10 +76,27 @@ public class Simulation
      return peopleNoWait;
   }
   
+  public Customer getCurServed()
+  {
+     return curServed;
+  }
+  
+  public int getNumWaiting()
+  {
+     return peopleThatHadToWait + peopleNoWait - peopleCompleted;
+  }
+  
   public static void main(String [] args)
   {
-     
-     
+     Simulation line = new Simulation();
+     line.arrival();
+     line.arrival();
+     line.arrival();
+     System.out.println(line.serviceCompletion());
+     System.out.println(line.serviceCompletion());
+     System.out.println(line.serviceCompletion());
+     System.out.println(line.serviceCompletion());
+
   }
 }
 
