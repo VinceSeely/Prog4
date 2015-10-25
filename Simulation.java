@@ -22,19 +22,58 @@ public class Simulation
   private int peopleThatHadToWait = 0;
   private int sumOfWaitTime = 0;          
   
-  public void arrival()
+  public boolean arrival()
   {
-     q.add(new Customer(curTime));
+     if(!q.isFull())
+     {
+        if(q.isEmpty())
+        {
+           curServed = new Customer(curTime);
+           peopleNoWait++;
+        }
+        else
+           peopleThatHadToWait++;
+        q.add(new Customer(curTime));
+      return true;
+     }
+     return false;
   }
   
-  public void serviceCompletion()
+  public String serviceCompletion()
+  {
+     if(!q.isEmpty())
+     {
+         String retVal = curServed.toString();
+         curServed = (Customer)q.remove();
+         return retVal;
+     }
+     return "Error";
+  }
+  
+  public void updateClock(int deltaTime)
+  {
+     curTime += deltaTime;
+  }
+  
+  public int getCurTime()
+  {
+     return curTime;
+  }
+  
+  public double getAverageTime()
+  {
+     return (double)sumOfWaitTime / peopleThatHadToWait; 
+  }
+  
+  public int getPeopleNoWait()
+  {
+     return peopleNoWait;
+  }
+  
+  public static void main(String [] args)
   {
      
-  }
-  
-  public void updateClock()
-  {
-     curTime++;
+     
   }
 }
 
