@@ -11,12 +11,13 @@ import java.util.Scanner;
  *
  * @author vince
  */
-public class ConsoleSimulation {
+public class ConsoleSimulation 
+{
    
    private Simulation line;
    private Scanner stdin;
    
-   public void run()
+   public void run() 
    {
       stdin = new Scanner(System.in);
       String input = "";
