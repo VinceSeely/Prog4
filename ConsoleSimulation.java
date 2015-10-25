@@ -5,10 +5,61 @@
  */
 package Prog4;
 
+import java.util.Scanner;
+
 /**
  *
  * @author vince
  */
 public class ConsoleSimulation {
    
+   private Simulation line;
+   private Scanner stdin;
+   
+   public void run()
+   {
+      stdin = new Scanner(System.in);
+      String input = "";
+      line = new Simulation();
+      while ( !input.equals("Q") )
+      {
+         input = stdin.next();
+         evaluate(input);    
+      } 
+      System.out.println("Normal Termination of Program 4! ");
+
+   }
+   
+   private void evaluate(String input)
+   {
+      switch(input)
+      {
+         case "A":
+            line.arrival();
+            break;
+         case "C":
+            line.serviceCompletion();
+            break;
+         case "T":
+            input = stdin.next();
+            int temp = Integer.parseInt(input);
+            line.updateClock(temp);
+            break;
+         case "P":
+            printResults();
+            break;
+         case "Q":
+            break;
+      }
+   }
+   
+   private void printResults()
+   {
+      System.out.println("The average wait time for customers who are "
+              + "finished waiting is" + line.getAverageTime() + ".\n" +
+              "The sum of the total wait time is" + line.getCurTime() + ".\n"
+              + "The number of people that did NOT have to wait is" + 
+              line.getPeopleNoWait() + ".\nThe number of people served "
+              + "is 8.");
+   }
 }
