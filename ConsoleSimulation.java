@@ -68,8 +68,14 @@ public class ConsoleSimulation
    
    private void complete()
    {
-      System.out.println(line.serviceCompletion() + 
-              " Number waiting in queue is " + line.getNumWaiting());
+      String str = line.serviceCompletion();
+      if(str == null)
+         System.out.println("No customer is being served at " +
+               "the present time " + line.getNumWaiting());
+      else
+         System.out.println( "Customer " + str + " finished at time " + 
+               line.getCurTime() + " Number waiting in queue is " +
+               line.getNumWaiting());
    }
    
    private void add()

@@ -54,7 +54,9 @@ public class Simulation
          peopleCompleted++;
          return retVal;
      }
-     return "Error";
+     else
+        curServed = null;
+     return null;
   }
   
   public void updateClock(int deltaTime)
@@ -84,7 +86,10 @@ public class Simulation
   
   public int getNumWaiting()
   {
-     return peopleThatHadToWait + peopleNoWait - peopleCompleted;
+     int numWait = peopleThatHadToWait + peopleNoWait - peopleCompleted - 1;
+     if(numWait == -1)
+         numWait = 0;
+     return numWait;
   }
   
   public int getSumOfTime()

@@ -83,6 +83,7 @@ public class Queue<E>
    public Object remove()
    {
       Object x = elements[front];
+      elements[front] = null;
       front = (front + 1) % elements.length;
 
       --count;
