@@ -47,9 +47,9 @@ public class Simulation
   public String serviceCompletion()
   {
      if(!q.isEmpty())
-     {
-         String retVal = curServed.toString();
+     {         
          curServed = (Customer)q.remove();
+         String retVal = curServed.toString();
          peopleCompleted++;
          return retVal;
      }
