@@ -49,6 +49,7 @@ public class Simulation
      if(!q.isEmpty())
      {         
          curServed = (Customer)q.remove();
+         sumOfWaitTime += getCurTime() - curServed.getArrivalTime();
          String retVal = curServed.toString();
          peopleCompleted++;
          return retVal;
@@ -68,7 +69,7 @@ public class Simulation
   
   public double getAverageTime()
   {
-     return (double)sumOfWaitTime / peopleThatHadToWait; 
+     return (double)sumOfWaitTime / (double)peopleThatHadToWait; 
   }
   
   public int getPeopleNoWait()
@@ -84,6 +85,16 @@ public class Simulation
   public int getNumWaiting()
   {
      return peopleThatHadToWait + peopleNoWait - peopleCompleted;
+  }
+  
+  public int getSumOfTime()
+  {
+     return sumOfWaitTime;
+  }
+  
+  public int getNumServed()
+  {
+     return peopleCompleted;
   }
   
   public static void main(String [] args)
