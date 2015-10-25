@@ -27,9 +27,9 @@ public class ConsoleSimulation
          input = stdin.next();
          evaluate(input);    
       } 
-      System.out.println("Statistics at end of the program are:\n\n");
+      System.out.println("Statistics at end of the program are:");
       printResults();
-       System.out.println("\nNormal Termination of Program 4! ");
+       System.out.println("Normal Termination of Program 4! ");
 
    }
    
@@ -59,7 +59,7 @@ public class ConsoleSimulation
    private void complete()
    {
       System.out.println(line.serviceCompletion() + 
-              " Number waiting in queue is" + line.getNumWaiting());
+              " Number waiting in queue is " + line.getNumWaiting());
    }
    
    private void add()
@@ -73,11 +73,11 @@ public class ConsoleSimulation
    
    private void printResults()
    {
-      System.out.println("The average wait time for customers who are "
+      System.out.println("\nThe average wait time for customers who are "
               + "finished waiting is" + line.getAverageTime() + ".\n" +
               "The sum of the total wait time is" + line.getCurTime() + ".\n"
               + "The number of people that did NOT have to wait is" + 
               line.getPeopleNoWait() + ".\nThe number of people served "
-              + "is 8.");
+              + "is 8.\n");
    }
 }
