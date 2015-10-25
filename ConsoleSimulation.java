@@ -41,7 +41,7 @@ public class ConsoleSimulation
             add();
             break;
          case "C":
-            complete();line.serviceCompletion();
+            complete();
             break;
          case "T":
             input = stdin.next();
