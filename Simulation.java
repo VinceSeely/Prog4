@@ -27,10 +27,9 @@ public class Simulation
      
      if(!q.isFull())
      {
-        if(q.isEmpty())
+        if(curServed == null)
         {
            curServed = new Customer(curTime);
-           q.add(curServed);
            peopleNoWait++;
         }
         else
@@ -48,11 +47,18 @@ public class Simulation
   {
      if(!q.isEmpty())
      {         
+         String retVal = curServed.toString();
          curServed = (Customer)q.remove();
          sumOfWaitTime += getCurTime() - curServed.getArrivalTime();
-         String retVal = curServed.toString();
          peopleCompleted++;
          return retVal;
+     }
+     else if (curServed != null)
+     {
+        String retVal = curServed.toString();
+        curServed = null;
+        peopleCompleted++;
+        return retVal;
      }
      else
         curServed = null;
@@ -72,7 +78,7 @@ public class Simulation
   
   public double getAverageTime()
   {
-     return  (double)sumOfWaitTime / (double)peopleThatHadToWait; 
+     return  (double)sumOfWaitTime / (double)(peopleCompleted); 
   }
   
   public int getPeopleNoWait()
