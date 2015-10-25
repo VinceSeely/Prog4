@@ -11,7 +11,7 @@ package Prog4;
  */
 public class Prog4 
 {
-   public void main (String [] args)
+   public static void main (String [] args)
    {
       try
       {
