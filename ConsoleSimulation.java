@@ -38,10 +38,10 @@ public class ConsoleSimulation
       switch(input)
       {
          case "A":
-            line.arrival();
+            add();
             break;
          case "C":
-            line.serviceCompletion();
+            complete();line.serviceCompletion();
             break;
          case "T":
             input = stdin.next();
@@ -54,6 +54,21 @@ public class ConsoleSimulation
          case "Q":
             break;
       }
+   }
+   
+   private void complete()
+   {
+      System.out.println(line.serviceCompletion() + 
+              "Number waiting in queue is" + line.getNumWaiting());
+   }
+   
+   private void add()
+   {
+      boolean completed = line.arrival();
+      if (completed)
+         System.out.println("A customer entered system at time " + 
+                 line.getCurTime() + ". Number waiting in queue is "+ 
+                 line.getNumWaiting() + ".");
    }
    
    private void printResults()
