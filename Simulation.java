@@ -61,7 +61,8 @@ public class Simulation
   
   public void updateClock(int deltaTime)
   {
-     curTime += deltaTime;
+     if(deltaTime > 0)
+      curTime += deltaTime;
   }
   
   public int getCurTime()
@@ -71,7 +72,7 @@ public class Simulation
   
   public double getAverageTime()
   {
-     return (double)sumOfWaitTime / (double)peopleThatHadToWait; 
+     return  (double)sumOfWaitTime / (double)peopleThatHadToWait; 
   }
   
   public int getPeopleNoWait()

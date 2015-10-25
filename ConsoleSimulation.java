@@ -62,8 +62,11 @@ public class ConsoleSimulation
    private void updateClock(int time)
    {
       line.updateClock(time);
-      System.out.println("Time updated by " + time + " time units and time "
+      if(time > 0)
+         System.out.println("Time updated by " + time + " time units and time "
               + "is now " + line.getCurTime() + ".");
+      else
+         System.out.println("Time not updated with " + time);
    }
    
    private void complete()
@@ -71,7 +74,7 @@ public class ConsoleSimulation
       String str = line.serviceCompletion();
       if(str == null)
          System.out.println("No customer is being served at " +
-               "the present time " + line.getNumWaiting());
+               "the present time " + line.getCurTime());
       else
          System.out.println( "Customer " + str + " finished at time " + 
                line.getCurTime() + " Number waiting in queue is " +
