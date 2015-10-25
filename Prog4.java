@@ -9,6 +9,19 @@ package Prog4;
  *
  * @author vince
  */
-public class Prog4 {
+public class Prog4 
+{
+   public void main (String [] args)
+   {
+      try
+      {
+        ConsoleSimulation temp = new ConsoleSimulation();
+        temp.run();
+      }
+      catch(Exception e)
+      {
+         System.out.println(e);
+      }
+   }
    
 }
