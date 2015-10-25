@@ -27,7 +27,9 @@ public class ConsoleSimulation
          input = stdin.next();
          evaluate(input);    
       } 
-      System.out.println("Normal Termination of Program 4! ");
+      System.out.println("Statistics at end of the program are:\n\n");
+      printResults();
+       System.out.println("\nNormal Termination of Program 4! ");
 
    }
    
