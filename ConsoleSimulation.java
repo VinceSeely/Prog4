@@ -8,7 +8,7 @@ package Prog4;
 import java.util.Scanner;
 
 /**
- *
+ * this is a simulation of a line 
  * @author vince
  */
 public class ConsoleSimulation 
@@ -16,7 +16,10 @@ public class ConsoleSimulation
    
    private Simulation line;
    private Scanner stdin;
-   
+  /**
+   * only public method and it also makes controls where the different inputs 
+   * end up going.
+   */
    public void run() 
    {
       stdin = new Scanner(System.in);
@@ -33,6 +36,10 @@ public class ConsoleSimulation
 
    }
    
+   /**
+    * evaluates the input and determines what needs to be done with the input
+    * @param input command string containing the full line of input to be used
+    */
    private void evaluate(String input)
    {
       String[] temp = input.split(" ");
@@ -59,6 +66,11 @@ public class ConsoleSimulation
       }
    }
    
+   /**
+    * updates the clock by an increment of time
+    * @param time the amount of time that is being incremented when changing 
+    *       the time.
+    */
    private void updateClock(int time)
    {
       line.updateClock(time);
@@ -69,6 +81,9 @@ public class ConsoleSimulation
          System.out.println("Time not updated with " + time);
    }
    
+   /**
+    * completes a customers run through the line 
+    */
    private void complete()
    {
       String str = line.serviceCompletion();
@@ -81,6 +96,9 @@ public class ConsoleSimulation
                line.getNumWaiting());
    }
    
+   /**
+    * adds a person to the line simulation
+    */
    private void add()
    {
       boolean completed = line.arrival();
@@ -90,6 +108,10 @@ public class ConsoleSimulation
                  line.getNumWaiting() + ".");
    }
    
+   /**
+    * prints out the results of the line run so far with some of the statistics
+    * about the line that can give an insight on to how the line is performing
+    */
    private void printResults()
    {
       System.out.println("\nThe average wait time for customers who are "
